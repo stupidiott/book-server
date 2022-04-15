@@ -31,6 +31,6 @@ public class ReturnBookServiceImpl implements ReturnBookService {
         borrowBookService.update(borrowBookDTO);
 
         // 变更图书状态
-        bookService.updateStatusByBookNo(bookNo,0);
+        bookService.updateStatusByBookNo(bookNo,1);
     }
 }

@@ -14,4 +14,5 @@ public class BorrowBookSearchDTO extends PageForm {
 
     private Integer deleteFlag;
 
+
 }

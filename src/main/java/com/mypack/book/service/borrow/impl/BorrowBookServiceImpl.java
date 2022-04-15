@@ -47,7 +47,7 @@ public class BorrowBookServiceImpl implements BorrowBookService {
         EduBorrowBook eduBorrowBook = mapperFacade.map(borrowBookDTO, EduBorrowBook.class);
         borrowBookMapper.insert(eduBorrowBook);
 
-        bookMapper.updateStatusByBookNo(borrowBookDTO.getBookNo(), 1);
+        bookMapper.updateStatusByBookNo(borrowBookDTO.getBookNo(), -1);
     }
 
     @Override

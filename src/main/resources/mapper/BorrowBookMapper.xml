@@ -8,9 +8,9 @@
           (select b.book_name from edu_book b where b.book_no = t.book_no) bookName
         from edu_borrow_book t
         <where>
-            <if test="deleteFlag != null">
-                and t.delete_flag = #{deleteFlag}
-            </if>
+<!--            <if test="deleteFlag != null">-->
+<!--                and t.delete_flag = #{deleteFlag}-->
+<!--            </if>-->
             <if test="bookNo != null and bookNo != ''">
                 and t.book_no like "%"#{bookNo}"%"
             </if>

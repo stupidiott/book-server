@@ -23,7 +23,7 @@
     </select>
 
     <update id="updateStatusByBookNo">
-        update edu_book t set t.status = #{status} where t.book_no = #{bookNo}
+        update edu_book t set t.status = t.status + #{status} where t.book_no = #{bookNo}
     </update>
 
 </mapper>
