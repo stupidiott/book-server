@@ -1,7 +1,6 @@
 package com.mypack.book.service.book.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.mypack.book.constants.EnumBookStatus;
 import com.mypack.book.constants.EnumResponse;
 import com.mypack.book.dto.book.BookDTO;
 import com.mypack.book.dto.book.BookSearchDTO;
@@ -37,7 +36,6 @@ public class BookServiceImpl implements BookService {
     @Override
     public void insert(BookDTO bookDTO) throws BookNoExistException {
 
-        bookDTO.setStatus(EnumBookStatus.NOT_LEND.getCode());
         bookDTO.setCreateTime(new Date());
 
         int num = bookMapper.countNumByBookNo(bookDTO.getBookNo());
