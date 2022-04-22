@@ -19,6 +19,8 @@ public class BookDTO {
     private String categoryName;
     private String publisher;
     private Integer status;
+    private String floor;
+    private Integer address;
     private String remark;
     private Integer deleteFlag;
     private Date createTime;

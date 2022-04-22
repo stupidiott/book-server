@@ -17,6 +17,8 @@ public class EduBook {
     private String bookName;
     private String author;
     private String library;
+    private String floor;
+    private Integer address;
     private String categoryName;
     private String publisher;
     private Integer status;
