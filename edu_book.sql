@@ -11,7 +11,7 @@
  Target Server Version : 80025
  File Encoding         : 65001
 
- Date: 15/04/2022 18:07:39
+ Date: 23/04/2022 00:04:43
 */
 
 SET NAMES utf8mb4;
@@ -31,15 +31,16 @@ CREATE TABLE `edu_account`  (
   `last_login_time` datetime NULL DEFAULT NULL COMMENT '最后一次登录时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `index_username`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '账号表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '账号表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of edu_account
 -- ----------------------------
-INSERT INTO `edu_account` VALUES (1, 'Librarian', '21232f297a57a5a743894a0e4a801fc3', 1, 1, '2021-07-07 20:46:08', '2022-04-14 09:16:33');
-INSERT INTO `edu_account` VALUES (2, 'User', '6512bd43d9caa6e02c990b0a82652dca', 1, 4, '2022-04-12 23:59:00', '2022-04-14 09:05:06');
+INSERT INTO `edu_account` VALUES (1, 'Librarian', '21232f297a57a5a743894a0e4a801fc3', 1, 1, '2021-07-07 20:46:08', '2022-04-19 02:07:33');
+INSERT INTO `edu_account` VALUES (2, 'User', '6512bd43d9caa6e02c990b0a82652dca', 1, 4, '2022-04-12 23:59:00', '2022-04-22 22:32:23');
 INSERT INTO `edu_account` VALUES (8, 'User2', 'b6d767d2f8ed5d21a44b0e5886680cb9', 0, 4, '2022-04-13 19:22:18', '2022-04-13 23:57:56');
 INSERT INTO `edu_account` VALUES (9, 'test', '202cb962ac59075b964b07152d234b70', 1, 4, '2022-04-14 09:20:14', '2022-04-14 09:20:37');
+INSERT INTO `edu_account` VALUES (10, '123', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '2022-04-19 01:10:53', '2022-04-19 01:11:02');
 
 -- ----------------------------
 -- Table structure for edu_account_login
@@ -53,7 +54,7 @@ CREATE TABLE `edu_account_login`  (
   `create_time` datetime NULL DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `index_token`(`token`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 323 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '账号登录表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 330 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '账号登录表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of edu_account_login
@@ -69,6 +70,14 @@ INSERT INTO `edu_account_login` VALUES (319, '1649898515349', 'Librarian', '{\"a
 INSERT INTO `edu_account_login` VALUES (320, '1649898703391', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"id\":1,\"lastLoginTime\":1649898515000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-14 09:11:43');
 INSERT INTO `edu_account_login` VALUES (321, '1649898992770', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"id\":1,\"lastLoginTime\":1649898703000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-14 09:16:33');
 INSERT INTO `edu_account_login` VALUES (322, '1649899237371', 'test', '{\"accountType\":4,\"createTime\":1649899214000,\"id\":9,\"lastLoginTime\":1649899214000,\"password\":\"202cb962ac59075b964b07152d234b70\",\"status\":1,\"username\":\"test\"}', '2022-04-14 09:20:37');
+INSERT INTO `edu_account_login` VALUES (323, '1650277229869', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"id\":1,\"lastLoginTime\":1649898993000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-18 18:20:30');
+INSERT INTO `edu_account_login` VALUES (324, '1650283722478', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"id\":2,\"lastLoginTime\":1649898306000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-04-18 20:08:42');
+INSERT INTO `edu_account_login` VALUES (325, '1650300848736', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"id\":1,\"lastLoginTime\":1650277230000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-19 00:54:09');
+INSERT INTO `edu_account_login` VALUES (326, '1650301862266', '123', '{\"accountType\":1,\"createTime\":1650301853000,\"id\":10,\"lastLoginTime\":1650301853000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"123\"}', '2022-04-19 01:11:02');
+INSERT INTO `edu_account_login` VALUES (327, '1650301896914', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"id\":1,\"lastLoginTime\":1650300849000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-19 01:11:37');
+INSERT INTO `edu_account_login` VALUES (328, '1650302201582', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"id\":2,\"lastLoginTime\":1650283722000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-04-19 01:16:42');
+INSERT INTO `edu_account_login` VALUES (329, '1650305253234', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"id\":1,\"lastLoginTime\":1650301897000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-19 02:07:33');
+INSERT INTO `edu_account_login` VALUES (330, '1650637942848', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"id\":2,\"lastLoginTime\":1650302202000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-04-22 22:32:23');
 
 -- ----------------------------
 -- Table structure for edu_account_menu
@@ -96,23 +105,28 @@ CREATE TABLE `edu_book`  (
   `book_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图书名称',
   `author` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '作者',
   `library` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图书管',
+  `floor` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '楼层\r\n',
   `category_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '分类名称',
   `publisher` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '出版社',
   `status` int NULL DEFAULT NULL COMMENT '状态：0：未借出 1：已借出',
   `remark` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图书描述',
   `delete_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志 0：未删除 1：已删除',
   `create_time` datetime NULL DEFAULT NULL COMMENT '添加时间',
+  `address` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `idx_book_no`(`book_no`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '图书表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '图书表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of edu_book
 -- ----------------------------
-INSERT INTO `edu_book` VALUES (1, '10001', '水浒传', '施耐庵', '南馆', '历史文献', '中国人民大学出版社', 5, '这是一本好书2,这是一本好书2,这是一本好书2,这是一本好书2,', 0, '2021-12-26 21:54:37');
-INSERT INTO `edu_book` VALUES (2, '10002', '西游记', '罗贯中', '东馆', '名著', '北京大学出版社', 5, '古典名著', 0, '2022-01-07 22:17:45');
-INSERT INTO `edu_book` VALUES (3, '10003', '三国演义', '罗贯中', '东馆', '名著', '清华大学出版社', 5, '好啊好啊！', 0, '2022-01-12 18:38:33');
-INSERT INTO `edu_book` VALUES (7, '10008', 'Java', '11', '东馆', '名著', '11', 0, 'Java ', 0, '2022-04-14 09:19:05');
+INSERT INTO `edu_book` VALUES (1, '10001', '水浒传', '施耐庵', 'A区', '1F', '历史文献', '中国人民大学出版社', 5, '这是一本好书2,这是一本好书2,这是一本好书2,这是一本好书2,', 0, '2021-12-26 21:54:37', 111);
+INSERT INTO `edu_book` VALUES (2, '10002', '西游记', '罗贯中', 'D区', '2F', '名著', '北京大学出版社', 5, '古典名著', 0, '2022-01-07 22:17:45', 222);
+INSERT INTO `edu_book` VALUES (3, '10003', '三国演义', '罗贯中', 'B区', '3F', '名著', '清华大学出版社', 5, '好啊好啊！', 0, '2022-01-12 18:38:33', 333);
+INSERT INTO `edu_book` VALUES (7, '10008', 'Java', '11', 'C区', '1F', '名著', '11', 1, 'Java ', 0, '2022-04-14 09:19:05', 444);
+INSERT INTO `edu_book` VALUES (15, '11', '1', '11', 'A区', '1F', '古典', '11', 1, '111', 0, '2022-04-22 21:30:45', 112);
+INSERT INTO `edu_book` VALUES (16, '1111', '3', '3', 'B区', '2F', '名著', '212', 22, '321', 0, '2022-04-22 21:33:36', 3);
+INSERT INTO `edu_book` VALUES (17, '999', '999', '999', 'B区', '1F', '名著', '99', 99, '99', 0, '2022-04-22 21:52:06', 99);
 
 -- ----------------------------
 -- Table structure for edu_borrow_book
@@ -128,12 +142,11 @@ CREATE TABLE `edu_borrow_book`  (
   `delete_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志：0：未删除 1：已删除',
   `return_time` datetime NULL DEFAULT NULL COMMENT '还书时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '借书信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '借书信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of edu_borrow_book
 -- ----------------------------
-INSERT INTO `edu_borrow_book` VALUES (61, '10003', 'test', '2022-04-14 00:00:00', '2022-04-15 00:00:00', '2022-04-14 09:23:32', 1, '2022-04-14 09:23:47');
 
 -- ----------------------------
 -- Table structure for edu_parameter
@@ -152,10 +165,15 @@ CREATE TABLE `edu_parameter`  (
 -- ----------------------------
 -- Records of edu_parameter
 -- ----------------------------
-INSERT INTO `edu_parameter` VALUES (1, 'library_name', '东馆', '东馆', 0, '2021-09-21 18:38:24');
-INSERT INTO `edu_parameter` VALUES (2, 'library_name', '南馆', '南馆', 0, '2021-09-21 18:38:33');
+INSERT INTO `edu_parameter` VALUES (1, 'library_name', 'A区', 'A区', 0, '2021-09-21 18:38:24');
+INSERT INTO `edu_parameter` VALUES (2, 'library_name', 'B区', 'B区', 0, '2021-09-21 18:38:33');
 INSERT INTO `edu_parameter` VALUES (3, 'book_type', '名著', '名著', 0, '2022-01-07 21:48:18');
 INSERT INTO `edu_parameter` VALUES (4, 'book_type', '古典', '古典', 0, '2022-01-07 21:48:19');
 INSERT INTO `edu_parameter` VALUES (5, 'book_type', '历史文献', '历史文献', 0, '2022-01-07 21:48:28');
+INSERT INTO `edu_parameter` VALUES (6, 'floor_num', '1F', '1F', 0, '2022-04-22 19:48:05');
+INSERT INTO `edu_parameter` VALUES (7, 'floor_num', '2F', '2F', 0, '2022-04-22 19:48:16');
+INSERT INTO `edu_parameter` VALUES (8, 'floor_num', '3F', '3F', 0, '2022-04-22 19:48:35');
+INSERT INTO `edu_parameter` VALUES (9, 'library_name', 'C区', 'C区', 0, '2021-09-21 18:38:33');
+INSERT INTO `edu_parameter` VALUES (10, 'library_name', 'D区', 'D区', 0, '2021-09-21 18:38:33');
 
 SET FOREIGN_KEY_CHECKS = 1;
