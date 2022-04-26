@@ -1,1 +1,0 @@
-java -Dfile.encoding=utf-8 -jar edu-student-0.0.1-SNAPSHOT.jar
