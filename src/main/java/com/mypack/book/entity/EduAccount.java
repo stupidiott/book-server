@@ -19,5 +19,5 @@ public class EduAccount {
     private Integer accountType;
     private Date createTime;
     private Date lastLoginTime;
-
+    private Integer debt;
 }
