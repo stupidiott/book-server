@@ -20,5 +20,5 @@ public class EduBorrowBook {
     private Date createTime;
     private Integer deleteFlag;
     private Date returnTime;
-
+    private Integer kind;
 }
