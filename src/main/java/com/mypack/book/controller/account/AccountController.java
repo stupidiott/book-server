@@ -8,9 +8,11 @@ import com.mypack.book.dto.account.AccountDTO;
 import com.mypack.book.dto.account.AccountModifyPasswordDTO;
 import com.mypack.book.dto.account.AccountResetPasswordDTO;
 import com.mypack.book.dto.account.AccountSearchDTO;
+import com.mypack.book.dto.borrow.BorrowBookDTO;
 import com.mypack.book.exception.ModifyPasswordException;
 import com.mypack.book.exception.UsernameExistException;
 import com.mypack.book.service.account.AccountService;
+import com.mypack.book.service.borrow.BorrowBookService;
 import com.mypack.book.utils.Result;
 import com.mypack.book.utils.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -26,6 +29,8 @@ public class AccountController {
 
     @Autowired
     private AccountService accountService;
+    @Autowired
+    private BorrowBookService borrowBookService;
 
 
     /**
@@ -36,8 +41,19 @@ public class AccountController {
 
         List<AccountDTO> accountDTOList = accountService.listAccount(searchDTO, true);
 
+        for (AccountDTO account: accountDTOList){
+            List<BorrowBookDTO> list = borrowBookService.listByUsername(account.getUsername());
+            account.setDebt(0);
+            for (BorrowBookDTO book : list){
+                if (book.getReturnTime() == null && new Date().getTime() > book.getEndTime().getTime()){
+                    long diff = new Date().getTime() - book.getEndTime().getTime();
+                    int diffDays = Math.toIntExact(diff / (24 * 60 * 60 * 1000));
+                    account.setDebt(account.getDebt()+diffDays);
+                }
+            }
+            accountService.update(account);
+        }
         accountDTOList.forEach(item->item.setPassword(null));
-
         PageInfo pageInfo = new PageInfo(accountDTOList);
 
         return ResultUtils.success(pageInfo);

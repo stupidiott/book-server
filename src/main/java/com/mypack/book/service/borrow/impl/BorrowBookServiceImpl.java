@@ -61,4 +61,9 @@ public class BorrowBookServiceImpl implements BorrowBookService {
 
         borrowBookMapper.updateById(eduBorrowBook);
     }
+
+    @Override
+    public List<BorrowBookDTO> listByUsername(String username) {
+        return borrowBookMapper.listByUsername(username);
+    }
 }

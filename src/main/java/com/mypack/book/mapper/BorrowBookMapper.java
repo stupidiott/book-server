@@ -15,4 +15,5 @@ public interface BorrowBookMapper extends BaseMapper<EduBorrowBook> {
     List<BorrowBookDTO> list(BorrowBookSearchDTO searchDTO);
 
 
+    List<BorrowBookDTO> listByUsername(String username);
 }
