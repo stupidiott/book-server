@@ -11,7 +11,7 @@
  Target Server Version : 80025
  File Encoding         : 65001
 
- Date: 27/04/2022 00:42:56
+ Date: 07/05/2022 01:15:01
 */
 
 SET NAMES utf8mb4;
@@ -37,13 +37,13 @@ CREATE TABLE `edu_account`  (
 -- ----------------------------
 -- Records of edu_account
 -- ----------------------------
-INSERT INTO `edu_account` VALUES (1, 'Librarian', '21232f297a57a5a743894a0e4a801fc3', 1, 1, '2021-07-07 20:46:08', '2022-04-27 00:07:10', 0);
-INSERT INTO `edu_account` VALUES (2, 'User', '6512bd43d9caa6e02c990b0a82652dca', 1, 4, '2022-04-12 23:59:00', '2022-04-27 00:15:14', 0);
+INSERT INTO `edu_account` VALUES (1, 'Librarian', '21232f297a57a5a743894a0e4a801fc3', 1, 1, '2021-07-07 20:46:08', '2022-05-07 00:35:31', 0);
+INSERT INTO `edu_account` VALUES (2, 'User', '6512bd43d9caa6e02c990b0a82652dca', 1, 4, '2022-04-12 23:59:00', '2022-04-30 19:58:52', 0);
 INSERT INTO `edu_account` VALUES (8, 'User2', 'b6d767d2f8ed5d21a44b0e5886680cb9', 0, 4, '2022-04-13 19:22:18', '2022-04-13 23:57:56', 0);
 INSERT INTO `edu_account` VALUES (9, 'test', '202cb962ac59075b964b07152d234b70', 1, 4, '2022-04-14 09:20:14', '2022-04-14 09:20:37', 0);
 INSERT INTO `edu_account` VALUES (10, '123', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '2022-04-19 01:10:53', '2022-04-26 23:59:20', 0);
 INSERT INTO `edu_account` VALUES (11, 'hua', 'e10adc3949ba59abbe56e057f20f883e', 1, 4, '2022-04-23 00:53:36', '2022-04-27 00:27:18', 0);
-INSERT INTO `edu_account` VALUES (12, 'huahua', 'e10adc3949ba59abbe56e057f20f883e', 1, 4, '2022-04-24 10:41:57', '2022-04-27 00:13:20', 1);
+INSERT INTO `edu_account` VALUES (12, 'huahua', 'e10adc3949ba59abbe56e057f20f883e', 1, 4, '2022-04-24 10:41:57', '2022-04-30 18:14:28', 0);
 
 -- ----------------------------
 -- Table structure for edu_account_login
@@ -57,36 +57,30 @@ CREATE TABLE `edu_account_login`  (
   `create_time` datetime NULL DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `index_token`(`token`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 354 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '账号登录表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 389 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '账号登录表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of edu_account_login
 -- ----------------------------
-INSERT INTO `edu_account_login` VALUES (342, '1650734781577', 'hua', '{\"accountType\":4,\"createTime\":1650646416000,\"id\":11,\"lastLoginTime\":1650731723000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"hua\"}', '2022-04-24 01:26:22');
-INSERT INTO `edu_account_login` VALUES (343, '1650766186193', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"id\":1,\"lastLoginTime\":1650732151000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-24 10:09:46');
-INSERT INTO `edu_account_login` VALUES (344, '1650769098790', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":1,\"id\":12,\"lastLoginTime\":1650768117000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-24 10:58:19');
-INSERT INTO `edu_account_login` VALUES (345, '1650774716732', 'hua', '{\"accountType\":4,\"createTime\":1650646416000,\"debt\":0,\"id\":11,\"lastLoginTime\":1650734782000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"hua\"}', '2022-04-24 12:31:57');
-INSERT INTO `edu_account_login` VALUES (346, '1650781367175', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1650766186000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-24 14:22:47');
-INSERT INTO `edu_account_login` VALUES (347, '1650781503130', 'hua', '{\"accountType\":4,\"createTime\":1650646416000,\"debt\":0,\"id\":11,\"lastLoginTime\":1650774717000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"hua\"}', '2022-04-24 14:25:03');
-INSERT INTO `edu_account_login` VALUES (348, '1650781617222', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1650781367000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-24 14:26:57');
-INSERT INTO `edu_account_login` VALUES (349, '1650781652733', 'hua', '{\"accountType\":4,\"createTime\":1650646416000,\"debt\":0,\"id\":11,\"lastLoginTime\":1650781503000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"hua\"}', '2022-04-24 14:27:33');
-INSERT INTO `edu_account_login` VALUES (350, '1650781741394', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":1,\"id\":12,\"lastLoginTime\":1650769099000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-24 14:29:01');
-INSERT INTO `edu_account_login` VALUES (351, '1650781819269', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1650781617000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-24 14:30:19');
-INSERT INTO `edu_account_login` VALUES (352, '1650782150270', 'hua', '{\"accountType\":4,\"createTime\":1650646416000,\"debt\":0,\"id\":11,\"lastLoginTime\":1650781653000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"hua\"}', '2022-04-24 14:35:50');
-INSERT INTO `edu_account_login` VALUES (353, '1650782425660', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":1,\"id\":12,\"lastLoginTime\":1650781741000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-24 14:40:26');
-INSERT INTO `edu_account_login` VALUES (354, '1650988357697', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"id\":1,\"lastLoginTime\":1650781819000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-26 23:52:38');
-INSERT INTO `edu_account_login` VALUES (355, '1650988399270', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"id\":12,\"lastLoginTime\":1650782426000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-26 23:53:19');
-INSERT INTO `edu_account_login` VALUES (356, '1650988503553', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"id\":1,\"lastLoginTime\":1650988358000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-26 23:55:04');
-INSERT INTO `edu_account_login` VALUES (357, '1650988695699', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"id\":1,\"lastLoginTime\":1650988504000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-26 23:58:16');
-INSERT INTO `edu_account_login` VALUES (358, '1650988760036', '123', '{\"accountType\":1,\"createTime\":1650301853000,\"id\":10,\"lastLoginTime\":1650301862000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"123\"}', '2022-04-26 23:59:20');
-INSERT INTO `edu_account_login` VALUES (359, '1650989193922', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1650988696000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-27 00:06:34');
-INSERT INTO `edu_account_login` VALUES (360, '1650989224352', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":1,\"id\":12,\"lastLoginTime\":1650988399000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-27 00:07:04');
-INSERT INTO `edu_account_login` VALUES (361, '1650989230279', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1650989194000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-27 00:07:10');
-INSERT INTO `edu_account_login` VALUES (362, '1650989237123', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":1,\"id\":12,\"lastLoginTime\":1650989224000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-27 00:07:17');
-INSERT INTO `edu_account_login` VALUES (363, '1650989593805', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"debt\":0,\"id\":2,\"lastLoginTime\":1650637943000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-04-27 00:13:14');
-INSERT INTO `edu_account_login` VALUES (364, '1650989600013', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":1,\"id\":12,\"lastLoginTime\":1650989237000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-27 00:13:20');
-INSERT INTO `edu_account_login` VALUES (365, '1650989713513', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"debt\":0,\"id\":2,\"lastLoginTime\":1650989594000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-04-27 00:15:14');
-INSERT INTO `edu_account_login` VALUES (366, '1650990438046', 'hua', '{\"accountType\":4,\"createTime\":1650646416000,\"debt\":0,\"id\":11,\"lastLoginTime\":1650782150000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"hua\"}', '2022-04-27 00:27:18');
+INSERT INTO `edu_account_login` VALUES (370, '1650999032598', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1650995068000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-27 02:50:33');
+INSERT INTO `edu_account_login` VALUES (371, '1650999680832', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":1,\"id\":12,\"lastLoginTime\":1650994989000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-27 03:01:21');
+INSERT INTO `edu_account_login` VALUES (372, '1650999752447', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"debt\":0,\"id\":2,\"lastLoginTime\":1650995077000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-04-27 03:02:32');
+INSERT INTO `edu_account_login` VALUES (373, '1651000000895', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":0,\"id\":12,\"lastLoginTime\":1650999681000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-27 03:06:41');
+INSERT INTO `edu_account_login` VALUES (374, '1651000192306', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"debt\":0,\"id\":2,\"lastLoginTime\":1650999752000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-04-27 03:09:52');
+INSERT INTO `edu_account_login` VALUES (375, '1651000642832', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":1,\"id\":12,\"lastLoginTime\":1651000001000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-27 03:17:23');
+INSERT INTO `edu_account_login` VALUES (376, '1651000847537', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"debt\":3,\"id\":2,\"lastLoginTime\":1651000192000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-04-27 03:20:48');
+INSERT INTO `edu_account_login` VALUES (377, '1651312920298', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1650999033000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-30 18:02:00');
+INSERT INTO `edu_account_login` VALUES (378, '1651313417361', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1651312920000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-30 18:10:17');
+INSERT INTO `edu_account_login` VALUES (379, '1651313487141', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":0,\"id\":12,\"lastLoginTime\":1651000643000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-30 18:11:27');
+INSERT INTO `edu_account_login` VALUES (380, '1651313530301', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"debt\":10,\"id\":2,\"lastLoginTime\":1651000848000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-04-30 18:12:10');
+INSERT INTO `edu_account_login` VALUES (381, '1651313616630', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":0,\"id\":12,\"lastLoginTime\":1651313487000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-30 18:13:37');
+INSERT INTO `edu_account_login` VALUES (382, '1651313667752', 'huahua', '{\"accountType\":4,\"createTime\":1650768117000,\"debt\":0,\"id\":12,\"lastLoginTime\":1651313617000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"huahua\"}', '2022-04-30 18:14:28');
+INSERT INTO `edu_account_login` VALUES (383, '1651319236628', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1651313417000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-04-30 19:47:17');
+INSERT INTO `edu_account_login` VALUES (384, '1651319931819', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"debt\":0,\"id\":2,\"lastLoginTime\":1651313530000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-04-30 19:58:52');
+INSERT INTO `edu_account_login` VALUES (385, '1651843405826', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1651319237000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-05-06 21:23:26');
+INSERT INTO `edu_account_login` VALUES (386, '1651849488582', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1651843406000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-05-06 23:04:49');
+INSERT INTO `edu_account_login` VALUES (387, '1651849819717', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1651849489000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-05-06 23:10:20');
+INSERT INTO `edu_account_login` VALUES (388, '1651854930666', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1651849820000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-05-07 00:35:31');
 
 -- ----------------------------
 -- Table structure for edu_account_menu
@@ -122,20 +116,14 @@ CREATE TABLE `edu_book`  (
   `delete_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志 0：未删除 1：已删除',
   `create_time` datetime NULL DEFAULT NULL COMMENT '添加时间',
   `address` int NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `idx_book_no`(`book_no`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '图书表' ROW_FORMAT = DYNAMIC;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '图书表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of edu_book
 -- ----------------------------
-INSERT INTO `edu_book` VALUES (1, '10001', '水浒传', '施耐庵', 'A区', '1F', '历史文献', '中国人民大学出版社', 4, '这是一本好书2,这是一本好书2,这是一本好书2,这是一本好书2,', 0, '2021-12-26 21:54:37', 111);
-INSERT INTO `edu_book` VALUES (2, '10002', '西游记', '罗贯中', 'D区', '2F', '名著', '北京大学出版社', 5, '古典名著', 0, '2022-01-07 22:17:45', 222);
-INSERT INTO `edu_book` VALUES (3, '10003', '三国演义', '罗贯中', 'B区', '3F', '名著', '清华大学出版社', 1, '好啊好啊！', 0, '2022-01-12 18:38:33', 333);
-INSERT INTO `edu_book` VALUES (7, '10008', 'Java', '11', 'C区', '1F', '名著', '11', 1, 'Java ', 0, '2022-04-14 09:19:05', 444);
-INSERT INTO `edu_book` VALUES (15, '11', '1', '11', 'A区', '1F', '古典', '11', 1, '111', 0, '2022-04-22 21:30:45', 112);
-INSERT INTO `edu_book` VALUES (16, '1111', '3', '3', 'B区', '2F', '名著', '212', 22, '321', 0, '2022-04-22 21:33:36', 3);
-INSERT INTO `edu_book` VALUES (17, '999', '999', '999', 'B区', '1F', '名著', '99', 96, '99', 0, '2022-04-22 21:52:06', 99);
+INSERT INTO `edu_book` VALUES (24, '6', 'Real-time rendering', 'Tomas Möller', 'C区', '3F', '古典', 'A K Peters, Ltc.', 66, NULL, 1, '2022-05-07 00:43:45', 6);
+INSERT INTO `edu_book` VALUES (27, '65', 'Against nature =', 'Joris-Karl Huysmans', 'B区', '2F', '古典', 'Oxford University Press', 66, NULL, 0, '2022-05-07 00:47:59', 6);
 
 -- ----------------------------
 -- Table structure for edu_borrow_book
@@ -152,13 +140,11 @@ CREATE TABLE `edu_borrow_book`  (
   `return_time` datetime NULL DEFAULT NULL COMMENT '还书时间',
   `kind` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 82 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '借书信息表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 88 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '借书信息表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of edu_borrow_book
 -- ----------------------------
-INSERT INTO `edu_borrow_book` VALUES (82, '999', 'hua', '2022-04-27 00:39:35', '2022-04-27 04:39:35', '2022-04-27 00:39:36', 0, NULL, 1);
-INSERT INTO `edu_borrow_book` VALUES (83, '10001', 'hua', '2022-04-27 00:39:42', '2022-04-27 04:39:42', '2022-04-27 00:39:43', 0, NULL, 1);
 
 -- ----------------------------
 -- Table structure for edu_parameter
