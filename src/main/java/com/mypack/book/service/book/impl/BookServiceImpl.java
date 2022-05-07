@@ -66,4 +66,19 @@ public class BookServiceImpl implements BookService {
     public void updateStatusByBookNo(String bookNo, Integer status) {
         bookMapper.updateStatusByBookNo(bookNo,status);
     }
+
+    @Override
+    public void insertCopy(BookDTO bookDTO) {
+        int num = bookDTO.getStatus();
+        String isbn = bookDTO.getBookNo();
+        for (int i = 1; i <= num; i++){
+            String id = isbn + i;
+            bookMapper.insertCopy(id,isbn,0);
+        }
+    }
+
+    @Override
+    public void returnCopy(String bookNo, String username) {
+        bookMapper.returnCopy(bookNo,username);
+    }
 }

@@ -16,4 +16,6 @@ public interface BorrowBookMapper extends BaseMapper<EduBorrowBook> {
 
 
     List<BorrowBookDTO> listByUsername(String username);
+
+    String getUsernameById(Integer id);
 }

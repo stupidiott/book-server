@@ -26,4 +26,19 @@
         update edu_book t set t.status = t.status + #{status} where t.book_no = #{bookNo}
     </update>
 
+    <insert id="insertCopy">
+        insert into edu_copy values (#{bookId},#{bookNo},#{flag},'')
+    </insert>
+
+    <select id="listAvailableCopy" resultType="java.lang.String">
+        select book_id from edu_copy where book_no=#{bookNo} and flag = 0
+    </select>
+
+    <update id="borrowCopy">
+        update edu_copy e set e.flag = 1, e.username = #{username}  where e.book_id=#{bookId}
+    </update>
+
+    <update id="returnCopy">
+        update edu_copy e set e.flag = 0, e.username = '' where e.book_no = #{bookNo} and e.username = #{username}
+    </update>
 </mapper>

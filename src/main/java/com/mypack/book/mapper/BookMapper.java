@@ -18,4 +18,11 @@ public interface BookMapper extends BaseMapper<EduBook> {
 
     void updateStatusByBookNo(@Param("bookNo") String bookNo,@Param("status") Integer status);
 
+    void insertCopy(String bookId, String bookNo, int flag);
+
+    List<String> listAvailableCopy(String bookNo);
+
+    void borrowCopy(String bookId, String username);
+
+    void returnCopy(String bookNo, String username);
 }

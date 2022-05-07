@@ -16,4 +16,7 @@ public interface BookService {
 
     void updateStatusByBookNo(String bookNo, Integer status);
 
+    void insertCopy(BookDTO bookDTO);
+
+    void returnCopy(String bookNo, String username);
 }

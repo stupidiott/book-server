@@ -15,4 +15,6 @@ public interface BorrowBookService {
     void update(BorrowBookDTO borrowBookDTO);
 
     List<BorrowBookDTO> listByUsername(String username);
+
+    String getUsernameById(Integer id);
 }

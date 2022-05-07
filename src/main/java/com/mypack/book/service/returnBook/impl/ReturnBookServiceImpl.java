@@ -30,6 +30,8 @@ public class ReturnBookServiceImpl implements ReturnBookService {
 
         borrowBookService.update(borrowBookDTO);
 
+        String username = borrowBookService.getUsernameById(borrowBookDTO.getId());
+        bookService.returnCopy(bookNo,username);
         // 变更图书状态
         bookService.updateStatusByBookNo(bookNo,1);
     }

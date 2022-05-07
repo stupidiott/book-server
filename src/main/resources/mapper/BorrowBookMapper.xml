@@ -21,4 +21,8 @@
     <select id="listByUsername" parameterType="java.lang.String" resultType="com.mypack.book.dto.borrow.BorrowBookDTO">
         select * from edu_borrow_book where borrow_identity_no = #{username} and kind = 0 and delete_flag = 0;
     </select>
+
+    <select id="getUsernameById" resultType="java.lang.String">
+        select borrow_identity_no from edu_borrow_book where id = #{id}
+    </select>
 </mapper>

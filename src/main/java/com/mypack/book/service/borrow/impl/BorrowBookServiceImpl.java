@@ -46,7 +46,8 @@ public class BorrowBookServiceImpl implements BorrowBookService {
 
         EduBorrowBook eduBorrowBook = mapperFacade.map(borrowBookDTO, EduBorrowBook.class);
         borrowBookMapper.insert(eduBorrowBook);
-
+        List<String> bookId = bookMapper.listAvailableCopy(borrowBookDTO.getBookNo());
+        bookMapper.borrowCopy(bookId.get(0),borrowBookDTO.getBorrowIdentityNo());
         bookMapper.updateStatusByBookNo(borrowBookDTO.getBookNo(), -1);
     }
 
@@ -65,5 +66,10 @@ public class BorrowBookServiceImpl implements BorrowBookService {
     @Override
     public List<BorrowBookDTO> listByUsername(String username) {
         return borrowBookMapper.listByUsername(username);
+    }
+
+    @Override
+    public String getUsernameById(Integer id) {
+        return borrowBookMapper.getUsernameById(id);
     }
 }

@@ -38,6 +38,7 @@ public class BookController {
 
         try {
             bookService.insert(bookDTO);
+            bookService.insertCopy(bookDTO);
         } catch (BookNoExistException e) {
             return ResultUtils.fail(e.getEnumResponse());
         }
