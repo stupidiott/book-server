@@ -5,7 +5,8 @@
     <select id="list" parameterType="com.mypack.book.dto.borrow.BorrowBookSearchDTO"  resultType="com.mypack.book.dto.borrow.BorrowBookDTO">
         select
           t.*,
-          (select b.book_name from edu_book b where b.book_no = t.book_no) bookName
+          (select b.book_name from edu_book b where b.book_no = t.book_no) bookName,
+            (select e.book_id  from edu_copy e where e.book_no = t.book_no and e.username = t.borrow_identity_no) bookId
         from edu_borrow_book t
         <where>
 <!--            <if test="deleteFlag != null">-->

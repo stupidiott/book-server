@@ -21,5 +21,6 @@ public class BorrowBookDTO {
     private Integer deleteFlag;
     private Date returnTime;
     private Integer kind;
+    private String bookId;
 
 }
