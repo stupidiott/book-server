@@ -32,7 +32,7 @@ public class AccountLoginInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private RequestService requestService;
 
-    private String[] excludePath = {"/api/user/login"};
+    private String[] excludePath = {"/api/user/login","/api/return/expiredbook"};
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {

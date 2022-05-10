@@ -2,6 +2,7 @@ package com.mypack.book.controller.borrow;
 
 import com.mypack.book.constants.EnumResponse;
 import com.mypack.book.dto.account.AccountDTO;
+import com.mypack.book.dto.account.menu.PayDTO;
 import com.mypack.book.dto.borrow.BorrowBookDTO;
 import com.mypack.book.dto.returnBook.ReturnBookDTO;
 import com.mypack.book.service.borrow.BorrowBookService;
@@ -10,9 +11,7 @@ import com.mypack.book.utils.Result;
 import com.mypack.book.utils.ResultUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -38,9 +37,9 @@ public class ReturnBookController {
         return ResultUtils.success();
     }
 
-    @RequestMapping("/return/expiredbook")
-    public Result returnExpiredbook(@RequestBody AccountDTO accountDTO){
-        List<BorrowBookDTO> list = borrowBookService.listByUsername(accountDTO.getUsername());
+    @PostMapping(value = "/return/expiredbook")
+    public Result returnExpiredbook(@RequestBody PayDTO payDTO){
+        List<BorrowBookDTO> list = borrowBookService.listByUsername(payDTO.getName());
         for (BorrowBookDTO bookDTO : list) {
             if (bookDTO.getReturnTime() == null && new Date().getTime() > bookDTO.getEndTime().getTime()){
                 returnBookService.returnBook(bookDTO.getId(),bookDTO.getBookNo());
