@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : MySQL
+ Source Server         : yinan
  Source Server Type    : MySQL
- Source Server Version : 80025
+ Source Server Version : 80028
  Source Host           : localhost:3306
  Source Schema         : edu_book
 
  Target Server Type    : MySQL
- Target Server Version : 80025
+ Target Server Version : 80028
  File Encoding         : 65001
 
- Date: 07/05/2022 22:48:23
+ Date: 23/05/2022 16:27:34
 */
 
 SET NAMES utf8mb4;
@@ -30,6 +30,7 @@ CREATE TABLE `edu_account`  (
   `create_time` datetime NULL DEFAULT NULL COMMENT '添加时间',
   `last_login_time` datetime NULL DEFAULT NULL COMMENT '最后一次登录时间',
   `debt` int NULL DEFAULT NULL COMMENT '欠款',
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `index_username`(`username`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '账号表' ROW_FORMAT = DYNAMIC;
@@ -37,13 +38,14 @@ CREATE TABLE `edu_account`  (
 -- ----------------------------
 -- Records of edu_account
 -- ----------------------------
-INSERT INTO `edu_account` VALUES (1, 'Librarian', '21232f297a57a5a743894a0e4a801fc3', 1, 1, '2021-07-07 20:46:08', '2022-05-07 22:44:42', 0);
-INSERT INTO `edu_account` VALUES (2, 'User', '6512bd43d9caa6e02c990b0a82652dca', 1, 4, '2022-04-12 23:59:00', '2022-05-07 22:44:16', 0);
-INSERT INTO `edu_account` VALUES (8, 'User2', 'b6d767d2f8ed5d21a44b0e5886680cb9', 0, 4, '2022-04-13 19:22:18', '2022-04-13 23:57:56', 0);
-INSERT INTO `edu_account` VALUES (9, 'test', '202cb962ac59075b964b07152d234b70', 1, 4, '2022-04-14 09:20:14', '2022-04-14 09:20:37', 0);
-INSERT INTO `edu_account` VALUES (10, '123', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '2022-04-19 01:10:53', '2022-04-26 23:59:20', 0);
-INSERT INTO `edu_account` VALUES (11, 'hua', 'e10adc3949ba59abbe56e057f20f883e', 1, 4, '2022-04-23 00:53:36', '2022-04-27 00:27:18', 0);
-INSERT INTO `edu_account` VALUES (12, 'huahua', 'e10adc3949ba59abbe56e057f20f883e', 1, 4, '2022-04-24 10:41:57', '2022-04-30 18:14:28', 0);
+INSERT INTO `edu_account` VALUES (1, 'Librarian', '21232f297a57a5a743894a0e4a801fc3', 1, 1, '2021-07-07 20:46:08', '2022-05-23 16:16:01', 0, NULL);
+INSERT INTO `edu_account` VALUES (2, 'User', '6512bd43d9caa6e02c990b0a82652dca', 1, 4, '2022-04-12 23:59:00', '2022-05-07 22:44:16', 0, NULL);
+INSERT INTO `edu_account` VALUES (8, 'User2', 'b6d767d2f8ed5d21a44b0e5886680cb9', 0, 4, '2022-04-13 19:22:18', '2022-04-13 23:57:56', 0, NULL);
+INSERT INTO `edu_account` VALUES (9, 'test', '202cb962ac59075b964b07152d234b70', 1, 4, '2022-04-14 09:20:14', '2022-04-14 09:20:37', 0, NULL);
+INSERT INTO `edu_account` VALUES (10, '123', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '2022-04-19 01:10:53', '2022-04-26 23:59:20', 0, NULL);
+INSERT INTO `edu_account` VALUES (11, 'hua', 'e10adc3949ba59abbe56e057f20f883e', 1, 4, '2022-04-23 00:53:36', '2022-04-27 00:27:18', 0, NULL);
+INSERT INTO `edu_account` VALUES (12, 'huahua', 'e10adc3949ba59abbe56e057f20f883e', 1, 4, '2022-04-24 10:41:57', '2022-04-30 18:14:28', 0, NULL);
+INSERT INTO `edu_account` VALUES (13, 'wyn', 'e10adc3949ba59abbe56e057f20f883e', 1, 4, '2022-05-22 15:43:02', '2022-05-23 16:18:25', 0, '1234@qq.com');
 
 -- ----------------------------
 -- Table structure for edu_account_login
@@ -57,7 +59,7 @@ CREATE TABLE `edu_account_login`  (
   `create_time` datetime NULL DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `index_token`(`token`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 389 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '账号登录表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 409 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '账号登录表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of edu_account_login
@@ -96,6 +98,15 @@ INSERT INTO `edu_account_login` VALUES (400, '1651934485392', 'Librarian', '{\"a
 INSERT INTO `edu_account_login` VALUES (401, '1651934621844', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"debt\":0,\"id\":2,\"lastLoginTime\":1651934462000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-05-07 22:43:42');
 INSERT INTO `edu_account_login` VALUES (402, '1651934655629', 'User', '{\"accountType\":4,\"createTime\":1649779140000,\"debt\":0,\"id\":2,\"lastLoginTime\":1651934622000,\"password\":\"6512bd43d9caa6e02c990b0a82652dca\",\"status\":1,\"username\":\"User\"}', '2022-05-07 22:44:16');
 INSERT INTO `edu_account_login` VALUES (403, '1651934681891', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1651934485000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-05-07 22:44:42');
+INSERT INTO `edu_account_login` VALUES (404, '1653205345077', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1651934682000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-05-22 15:42:25');
+INSERT INTO `edu_account_login` VALUES (405, '1653205409835', 'wyn', '{\"accountType\":4,\"createTime\":1653205382000,\"debt\":0,\"email\":\"123@qq.com\",\"id\":13,\"lastLoginTime\":1653205382000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"wyn\"}', '2022-05-22 15:43:30');
+INSERT INTO `edu_account_login` VALUES (406, '1653212328157', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1653205345000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-05-22 17:38:48');
+INSERT INTO `edu_account_login` VALUES (407, '1653212369127', 'wyn', '{\"accountType\":4,\"createTime\":1653205382000,\"debt\":0,\"email\":\"123@qq.com\",\"id\":13,\"lastLoginTime\":1653205410000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"wyn\"}', '2022-05-22 17:39:29');
+INSERT INTO `edu_account_login` VALUES (408, '1653212451938', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1653212328000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-05-22 17:40:52');
+INSERT INTO `edu_account_login` VALUES (409, '1653212466026', 'wyn', '{\"accountType\":4,\"createTime\":1653205382000,\"debt\":0,\"email\":\"123@qq.com\",\"id\":13,\"lastLoginTime\":1653212369000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"wyn\"}', '2022-05-22 17:41:06');
+INSERT INTO `edu_account_login` VALUES (410, '1653293513538', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1653212452000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-05-23 16:11:54');
+INSERT INTO `edu_account_login` VALUES (411, '1653293761161', 'Librarian', '{\"accountType\":1,\"createTime\":1625661968000,\"debt\":0,\"id\":1,\"lastLoginTime\":1653293514000,\"password\":\"21232f297a57a5a743894a0e4a801fc3\",\"status\":1,\"username\":\"Librarian\"}', '2022-05-23 16:16:01');
+INSERT INTO `edu_account_login` VALUES (412, '1653293905358', 'wyn', '{\"accountType\":4,\"createTime\":1653205382000,\"debt\":0,\"email\":\"123@qq.com\",\"id\":13,\"lastLoginTime\":1653212466000,\"password\":\"e10adc3949ba59abbe56e057f20f883e\",\"status\":1,\"username\":\"wyn\"}', '2022-05-23 16:18:25');
 
 -- ----------------------------
 -- Table structure for edu_account_menu
@@ -110,8 +121,8 @@ CREATE TABLE `edu_account_menu`  (
 -- ----------------------------
 -- Records of edu_account_menu
 -- ----------------------------
-INSERT INTO `edu_account_menu` VALUES (1, '[\r\n    {\r\n      \"id\":1000,\r\n      \"name\":\"BOOK\",\r\n      \"iconClass\":\"el-icon-tickets\",\r\n      \"children\":[\r\n        {\r\n          \"id\": 100001,\r\n          \"name\": \"Book List\",\r\n          \"path\": \"/books\"\r\n        },\r\n	{\r\n          \"id\": 100004,\r\n          \"name\": \"History\",\r\n          \"path\": \"/borrowBookHistory\"\r\n        },\r\n              {\r\n          \"id\": 100003,\r\n          \"name\": \"Borrow List\",\r\n          \"path\": \"/borrowBookList\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"id\":2000,\r\n      \"name\":\"ACCOUNT\",\r\n      \"iconClass\":\"el-icon-s-check\",\r\n      \"children\":[\r\n        {\r\n          \"id\":200001,\r\n          \"name\":\"Account List\",\r\n          \"path\":\"/accounts\"\r\n        }\r\n      ]\r\n    }\r\n  ]');
-INSERT INTO `edu_account_menu` VALUES (4, '[\r\n    {\r\n      \"id\":1000,\r\n      \"name\":\"BOOK\",\r\n      \"iconClass\":\"el-icon-tickets\",\r\n      \"children\":[\r\n        {\r\n          \"id\": 100001,\r\n          \"name\": \"Book List\",\r\n          \"path\": \"/books\"\r\n        },\r\n	{\r\n          \"id\": 100002,\r\n          \"name\": \"Borrow Book\",\r\n          \"path\": \"/borrowBook\"\r\n        },\r\n	{\r\n          \"id\": 100003,\r\n          \"name\": \"Borrow List\",\r\n          \"path\": \"/borrowBookList\"\r\n        }\r\n      ]\r\n    }\r\n  ]');
+INSERT INTO `edu_account_menu` VALUES (1, '[\r\n    {\r\n      \"id\":1000,\r\n      \"name\":\"BOOK\",\r\n      \"iconClass\":\"el-icon-tickets\",\r\n      \"children\":[\r\n        {\r\n          \"id\": 100001,\r\n          \"name\": \"Book List\",\r\n          \"path\": \"/books\"\r\n        },\r\n	{\r\n          \"id\": 100004,\r\n          \"name\": \"History\",\r\n          \"path\": \"/borrowBookHistory\"\r\n        },\r\n              {\r\n          \"id\": 100003,\r\n          \"name\": \"Borrow List\",\r\n          \"path\": \"/borrowBookList\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"id\":2000,\r\n      \"name\":\"ACCOUNT\",\r\n      \"iconClass\":\"el-icon-s-check\",\r\n      \"children\":[\r\n        {\r\n          \"id\":200001,\r\n          \"name\":\"Account List\",\r\n          \"path\":\"/accounts\"\r\n        }\r\n      ]\r\n    },\r\n{\r\n        \"id\":3000,\r\n        \"name\":\"DASHBOARD\",\r\n        \"iconClass\":\"el-icon-menu\",\r\n        \"children\":[\r\n        {\r\n          \"id\":300001,\r\n          \"name\":\" Library Dashboard\",\r\n          \"path\":\"/libraryDashboard\"\r\n        }\r\n      ]\r\n    }\r\n  ]');
+INSERT INTO `edu_account_menu` VALUES (4, '[\r\n    {\r\n      \"id\":1000,\r\n      \"name\":\"BOOK\",\r\n      \"iconClass\":\"el-icon-tickets\",\r\n      \"children\":[\r\n        {\r\n          \"id\": 100001,\r\n          \"name\": \"Book List\",\r\n          \"path\": \"/books\"\r\n        },\r\n	    {\r\n          \"id\": 100002,\r\n          \"name\": \"Borrow Book\",\r\n          \"path\": \"/borrowBook\"\r\n        },\r\n	    {\r\n          \"id\": 100003,\r\n          \"name\": \"Borrow List\",\r\n          \"path\": \"/borrowBookList\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n        \"id\":2000,\r\n        \"name\":\"DASHBOARD\",\r\n        \"iconClass\":\"el-icon-menu\",\r\n        \"children\":[\r\n        {\r\n          \"id\":200001,\r\n          \"name\":\" Book Dashboard\",\r\n          \"path\":\"/bookDashboard\"\r\n        }\r\n      ]\r\n    }\r\n  ]');
 
 -- ----------------------------
 -- Table structure for edu_book
@@ -132,7 +143,7 @@ CREATE TABLE `edu_book`  (
   `create_time` datetime NULL DEFAULT NULL COMMENT '添加时间',
   `address` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '图书表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '图书表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of edu_book
@@ -155,13 +166,21 @@ CREATE TABLE `edu_borrow_book`  (
   `return_time` datetime NULL DEFAULT NULL COMMENT '还书时间',
   `kind` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 88 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '借书信息表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 109 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '借书信息表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of edu_borrow_book
 -- ----------------------------
 INSERT INTO `edu_borrow_book` VALUES (100, '9780450032202', 'User', '2022-05-07 22:43:50', '2022-05-17 22:43:50', '2022-05-07 22:43:51', 1, '2022-05-07 22:45:05', 0);
 INSERT INTO `edu_borrow_book` VALUES (101, '9780451159274', 'User', '2022-05-07 22:43:55', '2022-05-17 22:43:55', '2022-05-07 22:43:56', 1, '2022-05-07 22:44:51', 0);
+INSERT INTO `edu_borrow_book` VALUES (102, '9780450032202', 'wyn', '2022-05-22 15:43:40', '2022-05-22 19:43:40', '2022-05-22 15:43:40', 1, '2022-05-22 16:03:41', 1);
+INSERT INTO `edu_borrow_book` VALUES (103, '9780451159274', 'wyn', '2022-05-22 15:43:52', '2022-05-22 19:43:52', '2022-05-22 15:43:53', 1, '2022-05-22 16:03:41', 1);
+INSERT INTO `edu_borrow_book` VALUES (104, '9780450032202', 'wyn', '2022-05-22 16:03:40', '2022-06-01 16:03:40', '2022-05-22 16:03:41', 1, '2022-05-22 17:38:56', 0);
+INSERT INTO `edu_borrow_book` VALUES (105, '9780450032202', 'wyn', '2022-05-22 16:03:40', '2022-06-01 16:03:40', '2022-05-22 16:03:41', 1, '2022-05-22 17:38:54', 0);
+INSERT INTO `edu_borrow_book` VALUES (106, '9780450032202', 'wyn', '2022-05-22 17:39:44', '2022-05-22 21:39:44', '2022-05-22 17:39:45', 1, '2022-05-22 17:39:57', 1);
+INSERT INTO `edu_borrow_book` VALUES (107, '9780451159274', 'wyn', '2022-05-22 17:39:49', '2022-05-22 21:39:49', '2022-05-22 17:39:50', 1, '2022-05-22 17:39:57', 1);
+INSERT INTO `edu_borrow_book` VALUES (108, '9780450032202', 'wyn', '2022-05-22 17:39:56', '2022-06-01 17:39:56', '2022-05-22 17:39:57', 1, '2022-05-23 16:12:31', 0);
+INSERT INTO `edu_borrow_book` VALUES (109, '9780450032202', 'wyn', '2022-05-22 17:39:56', '2022-06-01 17:39:56', '2022-05-22 17:39:57', 1, '2022-05-23 16:12:29', 0);
 
 -- ----------------------------
 -- Table structure for edu_copy
@@ -173,7 +192,7 @@ CREATE TABLE `edu_copy`  (
   `flag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`book_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of edu_copy
@@ -206,7 +225,7 @@ CREATE TABLE `edu_parameter`  (
   `delete_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志 0：未删除 1：已删除',
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '参数表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '参数表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of edu_parameter
@@ -221,5 +240,7 @@ INSERT INTO `edu_parameter` VALUES (7, 'floor_num', '2F', '2F', 0, '2022-04-22 1
 INSERT INTO `edu_parameter` VALUES (8, 'floor_num', '3F', '3F', 0, '2022-04-22 19:48:35');
 INSERT INTO `edu_parameter` VALUES (9, 'library_name', 'C区', 'C区', 0, '2021-09-21 18:38:33');
 INSERT INTO `edu_parameter` VALUES (10, 'library_name', 'D区', 'D区', 0, '2021-09-21 18:38:33');
+INSERT INTO `edu_parameter` VALUES (11, 'library_name', '11111', '11111', 0, '2022-05-23 16:12:49');
+INSERT INTO `edu_parameter` VALUES (12, 'book_type', 'wer', 'wer', 0, '2022-05-23 16:13:32');
 
 SET FOREIGN_KEY_CHECKS = 1;

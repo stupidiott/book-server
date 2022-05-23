@@ -8,6 +8,7 @@ import com.mypack.book.dto.account.AccountModifyPasswordDTO;
 import com.mypack.book.dto.account.AccountResetPasswordDTO;
 import com.mypack.book.dto.account.AccountSearchDTO;
 import com.mypack.book.entity.EduAccount;
+import com.mypack.book.exception.ModifyEmailException;
 import com.mypack.book.exception.ModifyPasswordException;
 import com.mypack.book.exception.UsernameExistException;
 import com.mypack.book.mapper.AccountMapper;
@@ -91,6 +92,31 @@ public class AccountServiceImpl implements AccountService {
         EduAccount eduAccount = new EduAccount();
         eduAccount.setId(accountModifyPasswordDTO.getId());
         eduAccount.setPassword(getEncryptPassword(accountModifyPasswordDTO.getNewPassword()));
+
+        accountMapper.updateById(eduAccount);
+    }
+
+    @Override
+    public void resetEmail(AccountDTO accountResetEmailDTO) {
+        EduAccount eduAccount = new EduAccount();
+        eduAccount.setId(accountResetEmailDTO.getId());
+        eduAccount.setPassword(getEncryptPassword(accountResetEmailDTO.getPassword()));
+        eduAccount.setEmail(accountResetEmailDTO.getEmail());
+
+        accountMapper.updateById(eduAccount);
+    }
+
+    @Override
+    public void modifyEmail(AccountDTO accountModifyEmailDTO) throws ModifyEmailException {
+        EduAccount dbAccount = accountMapper.selectById(accountModifyEmailDTO.getId());
+
+        if(!dbAccount.getEmail().equals(accountModifyEmailDTO.getOldEmail())){
+            throw new ModifyEmailException(EnumResponse.OLD_EMAIL_ERROR_EXCEPTION);
+        }
+
+        EduAccount eduAccount = new EduAccount();
+        eduAccount.setId(accountModifyEmailDTO.getId());
+        eduAccount.setEmail(accountModifyEmailDTO.getNewEmail());
 
         accountMapper.updateById(eduAccount);
     }

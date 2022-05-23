@@ -9,6 +9,7 @@ import com.mypack.book.dto.account.AccountModifyPasswordDTO;
 import com.mypack.book.dto.account.AccountResetPasswordDTO;
 import com.mypack.book.dto.account.AccountSearchDTO;
 import com.mypack.book.dto.borrow.BorrowBookDTO;
+import com.mypack.book.exception.ModifyEmailException;
 import com.mypack.book.exception.ModifyPasswordException;
 import com.mypack.book.exception.UsernameExistException;
 import com.mypack.book.service.account.AccountService;
@@ -131,4 +132,33 @@ public class AccountController {
         return ResultUtils.success();
     }
 
+    @RequestMapping("/reset/email")
+    public Result resetEmail(@RequestBody AccountDTO accountResetEmailDTO) {
+
+        if (accountResetEmailDTO.getId() == null || StrUtil.isEmpty(accountResetEmailDTO.getPassword())) {
+            return ResultUtils.fail(EnumResponse.INVALID_PARAM);
+        }
+
+        accountService.resetEmail(accountResetEmailDTO);
+
+        return ResultUtils.success();
+    }
+
+    @RequestMapping("/modify/email")
+    public Result modifyEmail(@RequestBody AccountDTO accountModifyEmailDTO) {
+
+        if (StrUtil.isEmpty(accountModifyEmailDTO.getOldEmail()) || StrUtil.isEmpty(accountModifyEmailDTO.getNewEmail())) {
+            return ResultUtils.fail(EnumResponse.INVALID_PARAM);
+        }
+        // 设置当前账号ID
+        accountModifyEmailDTO.setId(SessionContext.getAccountId());
+
+        try {
+            accountService.modifyEmail(accountModifyEmailDTO);
+        } catch (ModifyEmailException e) {
+            return ResultUtils.fail(e.getEnumResponse());
+        }
+
+        return ResultUtils.success();
+    }
 }
