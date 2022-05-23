@@ -9,6 +9,14 @@ public class BookNoExistException extends Exception {
 
     private EnumResponse enumResponse;
 
+    public EnumResponse getEnumResponse() {
+        return enumResponse;
+    }
+
+    public void setEnumResponse(EnumResponse enumResponse) {
+        this.enumResponse = enumResponse;
+    }
+
     public BookNoExistException() {
         super();
     }

@@ -4,7 +4,7 @@ import com.mypack.book.constants.EnumResponse;
 import lombok.Data;
 
 @Data
-public class UsernameExistException extends Exception {
+public class ModifyEmailException extends Exception {
 
 
     private EnumResponse enumResponse;
@@ -17,33 +17,34 @@ public class UsernameExistException extends Exception {
         this.enumResponse = enumResponse;
     }
 
-    public UsernameExistException() {
+    public ModifyEmailException() {
         super();
     }
 
-    public UsernameExistException(EnumResponse enumResponse){
+    public ModifyEmailException(EnumResponse enumResponse){
         this.enumResponse = enumResponse;
     }
 
-    public UsernameExistException(String message) {
+    public ModifyEmailException(String message) {
         super(message);
     }
 
 
-    public UsernameExistException(String message, Throwable cause) {
+    public ModifyEmailException(String message, Throwable cause) {
         super(message, cause);
     }
 
 
-    public UsernameExistException(Throwable cause) {
+    public ModifyEmailException(Throwable cause) {
         super(cause);
     }
 
 
-    protected UsernameExistException(String message, Throwable cause,
-                                     boolean enableSuppression,
-                                     boolean writableStackTrace) {
+    protected ModifyEmailException(String message, Throwable cause,
+                                      boolean enableSuppression,
+                                      boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 
 }
+

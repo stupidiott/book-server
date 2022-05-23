@@ -4,6 +4,7 @@ import com.mypack.book.dto.account.AccountDTO;
 import com.mypack.book.dto.account.AccountModifyPasswordDTO;
 import com.mypack.book.dto.account.AccountResetPasswordDTO;
 import com.mypack.book.dto.account.AccountSearchDTO;
+import com.mypack.book.exception.ModifyEmailException;
 import com.mypack.book.exception.ModifyPasswordException;
 import com.mypack.book.exception.UsernameExistException;
 
@@ -24,4 +25,7 @@ public interface AccountService {
     void modifyPassword(AccountModifyPasswordDTO accountModifyPasswordDTO) throws ModifyPasswordException;
 
 
+    void resetEmail(AccountDTO accountResetEmailDTO);
+
+    void modifyEmail(AccountDTO accountModifyEmailDTO) throws ModifyEmailException;
 }

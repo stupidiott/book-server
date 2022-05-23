@@ -18,4 +18,8 @@ public class AccountDTO implements Serializable {
     private Date createTime;
     private Date lastLoginTime;
     private Integer debt;
+    private String email;
+
+    private String oldEmail;
+    private String newEmail;
 }
