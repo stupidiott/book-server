@@ -21,4 +21,6 @@ public class EduBorrowBook {
     private Integer deleteFlag;
     private Date returnTime;
     private Integer kind;
+    private Integer lost;
+    private Integer damage;
 }

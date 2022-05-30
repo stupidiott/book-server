@@ -17,6 +17,8 @@ public class BorrowBookDTO {
     private String borrowIdentityNo;
     private Date startTime;
     private Date endTime;
+    private Integer lost;
+    private Integer damage;
 
     public Integer getId() {
         return id;

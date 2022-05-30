@@ -43,6 +43,8 @@ public class BorrowBookServiceImpl implements BorrowBookService {
 
         borrowBookDTO.setCreateTime(new Date());
         borrowBookDTO.setDeleteFlag(EnumDeleteFlag.NO.getCode());
+        borrowBookDTO.setLost(0);
+        borrowBookDTO.setDamage(0);
 
         EduBorrowBook eduBorrowBook = mapperFacade.map(borrowBookDTO, EduBorrowBook.class);
         borrowBookMapper.insert(eduBorrowBook);
