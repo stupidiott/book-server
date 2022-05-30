@@ -46,4 +46,9 @@ public class BorrowBookController {
 
     }
 
+    @RequestMapping("/update")
+    public Result lost(@RequestBody BorrowBookDTO bookDTO){
+        borrowBookService.update(bookDTO);
+        return ResultUtils.success();
+    }
 }
