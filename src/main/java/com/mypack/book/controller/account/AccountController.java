@@ -51,6 +51,8 @@ public class AccountController {
                     int diffDays = Math.toIntExact(diff / (24 * 60 * 60 * 1000));
                     account.setDebt(account.getDebt()+diffDays);
                 }
+                if (book.getLost() == 1) account.setDebt(account.getDebt()+10);
+                if (book.getDamage() == 1) account.setDebt(account.getDebt()+10);
             }
             accountService.update(account);
         }
