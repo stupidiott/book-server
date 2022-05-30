@@ -41,7 +41,8 @@ public class ReturnBookController {
     public Result returnExpiredbook(@RequestBody PayDTO payDTO){
         List<BorrowBookDTO> list = borrowBookService.listByUsername(payDTO.getName());
         for (BorrowBookDTO bookDTO : list) {
-            if (bookDTO.getReturnTime() == null && new Date().getTime() > bookDTO.getEndTime().getTime()){
+            if (bookDTO.getReturnTime() == null){
+                if (new Date().getTime() > bookDTO.getEndTime().getTime() || bookDTO.getLost()==1 || bookDTO.getDamage()==1)
                 returnBookService.returnBook(bookDTO.getId(),bookDTO.getBookNo());
             }
         }
